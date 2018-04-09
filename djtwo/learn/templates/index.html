@@ -2,8 +2,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>注册页面</title>
-  <style>
+    <title>欢迎{{name}}进入平台</title>
+      <style>
 .center
 {
  padding: 70px 0;
@@ -14,12 +14,7 @@
 </head>
 <body>
 <div class="center">
-<h1>注册</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ uf.as_p}}
-<input type="submit" value="注册">
-</form>
+{{name}},欢迎你登录运维平台！
     </div>
 </body>
 </html>
