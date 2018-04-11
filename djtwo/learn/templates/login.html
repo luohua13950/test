@@ -4,26 +4,44 @@
     <meta charset="UTF-8">
     <title>运维平台登录页面</title>
     <style>
-.center
-{
- padding: 70px 0;
-    border: 3px solid green;
-    text-align: center;
-}
-</style>
-</head>
-<body>
 
-<div class="center">
-    <h1 class="m-t">运维管理平台</h1>
+</style>
+        <link rel="shortcut icon" href="favicon.ico"> <link href="/static/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/style.min862f.css?v=4.1.0" rel="stylesheet">
+
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+</head>
+<body >
+ <div class="middle-box fadeInDown animated text-center center">
+             <div>
+
+                <h1 class="logo-name">HL</h1>
+
+            </div>
+    <h3>运维管理平台</h3>
+
 <form method = 'post' enctype="multipart/form-data">
+
     {% csrf_token %}
     {{uf.as_p}}
+
   <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
   <p class="text-muted text-center"> <a href="http://127.0.0.1:8000/learn/changpass"><small>忘记密码了？</small></a> | <a href="http://127.0.0.1:8000/learn/regist">注册一个新账号</a>
     </p>
 </form>
 </div>
+   <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
 </body>
 </html>
 

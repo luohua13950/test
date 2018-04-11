@@ -15,6 +15,10 @@
 <body>
 <div class="center">
     这是更改密码的界面
+    {% for user in users %}
+        <li>{{ user.username}}</li>
+        <li>{{ user.last_login}}</li>
+    {% endfor %}
     </div>
 </body>
 </html>

@@ -10,11 +10,141 @@
     border: 3px solid green;
     text-align: center;
 }
+
 </style>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/static/css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/style.min862f.css?v=4.1.0" rel="stylesheet">
 </head>
 <body>
 <div class="center">
 {{name}},欢迎你登录运维平台！
     </div>
+ <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" src="/static/imag/head.jpg" /></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">{{name}}</strong></span>
+                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                                </li>
+                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                </li>
+                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                </li>
+                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">资产配置</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="index_v1.html" data-index="0">物理机</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v2.html">虚拟机</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v3.html">网络设备</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="index_v4.html">其它</a>
+                            </li>
+                            <li>
+                                <a href="index_v5.html" target="_blank">主页示例五</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="layouts.html"><i class="fa fa-columns"></i> <span class="nav-label">自动化</span></a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">运行情况</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="graph_echarts.html">磁盘情况</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="graph_flot.html">内存情况</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="graph_morris.html">部署</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="graph_rickshaw.html">运行日志</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="graph_peity.html">接口</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="graph_sparkline.html">接口</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="graph_metrics.html">接口</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">邮件 </span><span class="label label-warning pull-right">1</span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a class="J_menuItem" href="mailbox.html">收件箱</a>
+                            </li>
+                            <li><a class="J_menuItem" href="mail_detail.html">查看邮件</a>
+                            </li>
+                            <li><a class="J_menuItem" href="mail_compose.html">写信</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+     </div>
+
+<!--zhongjian-->
+<div id="page-wrapper" class="gray-bg dashbard-1">
+
+
+</div>
+<!--zhongjian-->
+<div id="right-sidebar">
+    </div>
+   <script src="/static/js/query.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/static/js/plugins/layer/layer.min.js"></script>
+    <script src="/static/js/hplus.min.js?v=4.1.0"></script>
+    <script type="text/javascript" src="/static/js/contabs.min.js"></script>
+    <script src="/static/js/plugins/pace/pace.min.js"></script>
 </body>
 </html>
