@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for djtwo project.
 
@@ -131,7 +132,12 @@ STATIC_ROOT= os.path.join(BASE_DIR, 'statics')
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static')
 ]
-print "----------------%s" %STATICFILES_DIRS
+
+EMAIL_HOST = "smtp.163.com"
+EMAIL_HOST_USER = "15901889707@163.com"
+EMAIL_HOST_PASSWORD = "xiangcao2717"
+EMAIL_USE_TLS = False
+#EMAIL_SUBJECT_PREFIX = u"[邮件]"
 #TEMPLATE_DIRS = (
 #    os.path.join(BASE_DIR,  'templates'),
 #)

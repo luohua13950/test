@@ -4,10 +4,11 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render,render_to_response
 from django import forms
 from learn.models import User
-from django.template import RequestContext
+from django.template import RequestContext,Context
 from django.views.decorators.csrf import csrf_exempt
 import  datetime
 from django.contrib import messages
+from asset.script import ssh_link
 # Create your views here.
 class UserForm(forms.Form):
     username = forms.CharField(label='用户名:',max_length=100)
@@ -50,7 +51,18 @@ def login(request):
     return render(request,'login.html',{'uf':uf})
 def index(request):
     name = request.COOKIES.get('username')
-    return render(request,'index.html',{'name':name})
+    users = User.objects.filter(username = name).values('user_priority')#获取权限
+    reprio = "管理员"
+    for item in users:
+       prio = item
+    if item == '0':
+       reprio = "普通用户"
+    elif item == '1':
+       reprio = "管理员"
+    elif item == '2':
+       reprio = "超级管理员"
+    #context = ({'name':name})
+    return render(request,'index.html',locals())
 
 @csrf_exempt
 def regist(request):
@@ -84,3 +96,15 @@ def changpass(request):
    for u in (users):
     print (u)
     return render(request,"changpass.html",{'users':users})
+
+def piant(request):
+    #response = HttpResponseRedirect('/learn/piant/')
+   # return response
+    ssh = ssh_link.ssh_login_basetion()
+    res = ssh_link.get_memory(ssh)
+    host_name = ssh_link.HostIp
+    user_mem = int(res[0])
+    free_mem = int(res[1])
+    avail_mem = int(res[2])
+    ret = {'user_mem':user_mem,'free_mem':free_mem,'avail_mem':avail_mem,'host_name':host_name}
+    return render(request,"piant.html",ret)
