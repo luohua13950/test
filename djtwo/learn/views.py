@@ -8,7 +8,7 @@ from django.template import RequestContext,Context
 from django.views.decorators.csrf import csrf_exempt
 import  datetime
 from django.contrib import messages
-from asset.script import ssh_link
+from asset.script import ssh_link,read_yaml_file
 # Create your views here.
 class UserForm(forms.Form):
     username = forms.CharField(label='用户名:',max_length=100)
@@ -107,4 +107,5 @@ def piant(request):
     free_mem = int(res[1])
     avail_mem = int(res[2])
     ret = {'user_mem':user_mem,'free_mem':free_mem,'avail_mem':avail_mem,'host_name':host_name}
+    ssh.close()
     return render(request,"piant.html",ret)

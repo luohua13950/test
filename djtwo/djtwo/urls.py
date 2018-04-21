@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from learn.views import *
+from asset.views import *
 urlpatterns = [
     url(r'learn/',include('learn.urls')),
+    url(r'asset/',include('asset.urls')),
     url(r'^admin/', admin.site.urls),
 ]

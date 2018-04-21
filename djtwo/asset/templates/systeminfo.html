@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{uf.as_p}}
+<button type="submit" class="btn btn-primary block full-width m-b">提交</button>
+<br>
+{% for item in host %}
+    <li>主机IP：{{item.host_ip}}</li>
+    <li>主机用户：{{item.ssh_user}}</li>
+    <li>所属系统：{{item.host_system}}</li>
+    <li>添加主机的用户:{{ item.user_name}}</li>
+{% endfor %}
+</form>
+</body>
+</html>
