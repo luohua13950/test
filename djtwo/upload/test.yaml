@@ -1,0 +1,13 @@
+﻿---
+hosts : 
+        ipadress : ['1.1.1.1','2.2.2.2','3.3.3.3']
+        user : ['test','test2','test3']
+        password : ['luohua139@','luohua139@','luohua139@']
+        ownsystem : ['da','ififdfc','gdgdh']
+        syscmd_list : ["cat /etc/issue",
+                        "cat /etc/redhat-release",
+                        "hostname",
+                        "cat /sys/class/net/[^vtlsb]*/address||esxcfg-vmknic -l|awk '{print $8}'|grep ':'",
+                        "dmidecode -s system-serial-number",
+                        "dmidecode -s system-manufacturer",
+                        "dmidecode -s system-product-name"]

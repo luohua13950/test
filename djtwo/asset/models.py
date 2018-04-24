@@ -11,5 +11,7 @@ class hostinfo(models.Model):
     ssh_status = models.IntegerField(default=0,verbose_name='0-成功，1-失败')
     host_system = models.CharField(max_length=64,null=False,verbose_name='主机所部署的系统')
     user_name = models.CharField(max_length=64,default='admin',verbose_name='添加机器的人名')
+    ops_direct = models.CharField(max_length=64,default='no',verbose_name='该机器联系人')
+    sytem_info = models.CharField(max_length=64,default='os',verbose_name='主机操作系统')
     class Meta:
         db_table = "hostinfo"

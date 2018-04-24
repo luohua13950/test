@@ -14,16 +14,16 @@ class SearchHost(forms.Form):
     hostip = forms.CharField(label='主机IP',max_length=64)
     hostname = forms.CharField(label='主机名',max_length=64)
 def upload_hosts(request):
-    url_path = os.path.join(BASE_DIR,'upload')
+    url_path = os.path.join(BASE_DIR,'upload')#先获得存放上传文件的目录
     if request.method == "POST":
-        myfile = request.FILES.get("myfile",None)
+        myfile = request.FILES.get("myfile",None)#获得上传的文件
         print url_path
         if not myfile:
             info = "文件不存在，请重新上传！"
             messages.add_message(request,messages.WARNING,info)
             response = HttpResponseRedirect('/asset/upload_hosts/')
             return response
-        destnation = open(os.path.join(url_path,myfile.name),'wb+')
+        destnation = open(os.path.join(url_path,myfile.name),'wb+')#打开上传的文件
         for chunk in myfile.chunks():
             destnation.write(chunk)
         destnation.close()
@@ -49,8 +49,8 @@ def upload_hosts(request):
         tt = hostinfo.objects.all()
         return response
     else:
-        info = "方法不是POST"
-        messages.add_message(request,messages.WARNING,info)
+        #info = "方法不是POST"
+        #messages.add_message(request,messages.WARNING,info)
         response = HttpResponseRedirect('/asset/upload_hosts/')
     return render(request,'upload_hosts.html')
 

@@ -2,9 +2,18 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>主机信息展示</title>
+    <style>
+        .center
+{
+ padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+}
+    </style>
 </head>
 <body>
+<div class="center">
 <form method="post" enctype="multipart/form-data" >
     {% csrf_token %}
     {{uf.as_p}}
@@ -17,5 +26,6 @@
     <li>添加主机的用户:{{ item.user_name}}</li>
 {% endfor %}
 </form>
+</div>
 </body>
 </html>

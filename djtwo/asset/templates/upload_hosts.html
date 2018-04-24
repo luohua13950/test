@@ -2,9 +2,18 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>上传主机清单文件</title>
+    <style>
+        .center
+{
+ padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+}
+    </style>
 </head>
 <body>
+<div class="center">
 <form enctype="multipart/form-data" method="post" >
   {% csrf_token %}
     <input type="file" name="myfile"/>
@@ -18,5 +27,6 @@
 </ul>
 {% endif %}
 </form>
+</div>
 </body>
 </html>

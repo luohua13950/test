@@ -14,6 +14,6 @@ class User(models.Model):
     password = models.CharField(max_length=50)
     last_login = models.DateTimeField(blank=True)
     user_priority=models.IntegerField(default=0)
-
+    email = models.CharField(max_length=64,default='000')
     def __unicode__(self):
         return self.username
