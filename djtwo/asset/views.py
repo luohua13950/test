@@ -7,8 +7,10 @@ from asset.script.read_yaml_file import read_yaml_file
 from djtwo.settings import BASE_DIR
 from learn.models import User
 from django import forms
-import os
+import os,sys
 from asset.models import hostinfo
+from asset.script import send_mails
+sys.path.append("..")
 # Create your views here.
 class SearchHost(forms.Form):
     hostip = forms.CharField(label='主机IP',max_length=64)
@@ -70,3 +72,21 @@ def systeminfo(request):
     else:
         uf = SearchHost()
     return render(request,'systeminfo.html',{'uf':uf})
+'''
+def send_email(requst):
+            sendm = send_mails.sendmaill(subject = "dada",context ="dada",mail_to = ['luohua13950@163.com'])
+            ret = sendm.send()
+            if ret:
+                info = "发送成功！"
+                messages.add_message(requst,messages.SUCCESS,info)
+                return render(requst,'sendemail.html')
+            else:
+                info = "发送失败！"
+                messages.add_message(requst,messages.WARNING,info)
+                respose = HttpResponseRedirect('/asset/sendemail/')
+                return respose
+'''
+def sendmail(request):
+    sendm = send_mails.sendmail(sub_info = "测试邮件",content_info ="这是一封测试邮件！",receive_addr = ['luohua13950@163.com'])
+    ret = sendm.send()
+    return  render(request,'sendemail.html',{'ret':ret})

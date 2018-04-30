@@ -8,11 +8,11 @@ from django.template import RequestContext,Context
 from django.views.decorators.csrf import csrf_exempt
 import  datetime
 from django.contrib import messages
-from asset.script import ssh_link,read_yaml_file
+from asset.script import ssh_link,read_yaml_file,send_mails
 # Create your views here.
 class UserForm(forms.Form):
     username = forms.CharField(label='用户名:',max_length=100)
-    password = forms.CharField(label='密码:',widget=forms.PasswordInput())
+    password = forms.CharField(label='密  码:',widget=forms.PasswordInput())
 
 def login(request):
     if request.method == "POST":
@@ -106,6 +106,12 @@ def piant(request):
     user_mem = int(res[0])
     free_mem = int(res[1])
     avail_mem = int(res[2])
+    '''下面为发送管理员邮件部分，如需发送取消注释即可
+    if user_mem>100:
+         msg = u'请注意管理主机%s已用内存已经超过%sM还剩余%sM'%(host_name,str(user_mem),str(free_mem))
+         sendm = send_mails.sendmail(sub_info = "内存使用较高",content_info =msg,receive_addr = ['luohua13950@163.com'])
+         ret = sendm.send()
+    '''
     ret = {'user_mem':user_mem,'free_mem':free_mem,'avail_mem':avail_mem,'host_name':host_name}
     ssh.close()
     return render(request,"piant.html",ret)

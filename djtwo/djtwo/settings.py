@@ -16,7 +16,6 @@ import os,sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE_DIR,'asset'))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -133,10 +132,13 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static')
 ]
 
-EMAIL_HOST = "smtp.163.com"
-EMAIL_HOST_USER = "15901889707@163.com"
-EMAIL_HOST_PASSWORD = "xiangcao2717"
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '15901889707@163.com'
+EMAIL_HOST_PASSWORD = 'luohua13950'
 EMAIL_USE_TLS = False
+EMAIL_SUBJECT_PREFIX = u'[罗华自动化运维平台]'
 #EMAIL_SUBJECT_PREFIX = u"[邮件]"
 #TEMPLATE_DIRS = (
 #    os.path.join(BASE_DIR,  'templates'),
